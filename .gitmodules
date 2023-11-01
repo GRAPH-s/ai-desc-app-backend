@@ -1,0 +1,3 @@
+[submodule "ai_model_for_mobile"]
+	path = ai_model_for_mobile
+	url = https://github.com/GRAPH-s/ai_model_for_mobile.git
