@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    ai_model:
+        container_name: ai_model
+        env_file:
+            - ./.env
+        build:
+            context: ./ai_model_for_mobile
+        ports:
+            - 8001:80
+        restart: always
