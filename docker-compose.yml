@@ -10,3 +10,15 @@ services:
         ports:
             - 8001:80
         restart: always
+    backend:
+        container_name: backend
+        env_file:
+            -   ./.env
+        command: sh -c "gunicorn django_core.wsgi:application --bind 0.0.0.0:80 --reload"
+        build:
+            context: ./django_core
+        ports:
+            -   8002:80
+        volumes:
+            - ./django_core:/app
+        restart: always

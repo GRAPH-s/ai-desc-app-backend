@@ -19,6 +19,7 @@ from django.urls import path, include, re_path
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from drf_yasg import openapi
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -39,6 +40,7 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls")),
     re_path(r"^api/", include("djoser.urls")),
     re_path(r"^api/", include("djoser.urls.authtoken")),
+    re_path(r"^api/ai-service/", include("ai_service.urls")),
     path(
         "doc/swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),
@@ -48,3 +50,5 @@ urlpatterns = [
         "doc/redoc", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
     ),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
