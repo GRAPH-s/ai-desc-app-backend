@@ -7,6 +7,7 @@ from rest_framework import status
 
 load_dotenv()
 AI_SERVICE_URL = os.getenv("AI_SERVICE_URL")
+HOST_URL = os.getenv("AI_SERVICE_URL")
 
 
 # Create your views here.
@@ -37,7 +38,7 @@ class AiServiceWithDescription(APIView):
                 )
 
             data = {
-                "image_url": image_url,
+                "image_url": HOST_URL + image_url,
                 "accuracy_threshold": "0.7",
                 "number_objects": 20,
                 "description": user_description,
