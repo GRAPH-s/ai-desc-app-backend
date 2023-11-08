@@ -20,7 +20,7 @@ class AiServiceWithDescription(APIView):
                 endpoint = "with_input"
             url = f"{AI_SERVICE_URL}/api/{endpoint}"
             print(f"Sending request to {url}...", data)
-            response = requests.post(url, json=data)
+            response = requests.post(url, json=data, timeout=300)
             response.raise_for_status()
             return response
         except requests.exceptions.RequestException as e:
