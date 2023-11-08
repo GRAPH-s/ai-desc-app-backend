@@ -7,7 +7,7 @@ from rest_framework import status
 
 load_dotenv()
 AI_SERVICE_URL = os.getenv("AI_SERVICE_URL")
-HOST_URL = os.getenv("AI_SERVICE_URL")
+HOST_URL = os.getenv("HOST_URL")
 
 
 # Create your views here.

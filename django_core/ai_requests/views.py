@@ -10,6 +10,7 @@ import json
 
 load_dotenv()
 AI_SERVICE_URL = os.getenv("AI_SERVICE_URL")
+HOST_URL = os.getenv("HOST_URL")
 
 
 class RequestHistoryAPIList(generics.ListCreateAPIView):
@@ -57,7 +58,7 @@ class RequestHistoryAPIList(generics.ListCreateAPIView):
             ).data
 
             data = {
-                "image_url": serialized_rh_object.get("image"),
+                "image_url": HOST_URL + serialized_rh_object.get("image"),
                 "accuracy_threshold": "0.7",
                 "number_objects": 20,
                 "description": serialized_rh_object.get("user_description"),
