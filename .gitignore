@@ -1,7 +1,5 @@
 venv
 
-db.sqlite3
-
 .idea
 
 .env
@@ -168,3 +166,5 @@ cython_debug/
 #.idea/
 
 .DS_Store
+
+media/

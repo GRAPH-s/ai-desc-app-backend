@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework_swagger",
     "ai_service",
+    "ai_requests",
     "drf_yasg",
+    "imagekit",
     "users",
     "rest_framework",
     "rest_framework.authtoken",
@@ -79,6 +81,12 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_core.wsgi.application"
 
 
+STATIC_URL = "static/"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "media/"
+
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -111,14 +119,16 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.AllowAny"
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ],
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.TokenAuthentication",
-    ),
 }
 
+AUTH_USER_MODEL = "users.User"
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
