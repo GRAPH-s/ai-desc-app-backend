@@ -44,8 +44,7 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls")),
     re_path(r"^api/", include("djoser.urls")),
     re_path(r"^api/", include("djoser.urls.authtoken")),
-    re_path(r"^api/ai-service/", include("ai_service.urls")),
-    re_path(r"^api/ai-requests/", include("ai_requests.urls")),
+    re_path(r"^api/ai_requests/", include("ai_requests.urls")),
     path(
         "doc/swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

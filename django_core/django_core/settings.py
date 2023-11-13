@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework_swagger",
     "corsheaders",
-    "ai_service",
     "ai_requests",
     "drf_yasg",
     "imagekit",
