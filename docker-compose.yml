@@ -28,3 +28,12 @@ services:
         volumes:
             - ./django_core:/app
         restart: always
+    nginx:
+        build: ./nginx
+        volumes:
+            - ./django_core:/django_core
+        ports:
+          - 9002:80
+          - 9001:443
+        depends_on:
+          - backend

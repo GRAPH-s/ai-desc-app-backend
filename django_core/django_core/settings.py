@@ -85,7 +85,8 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_core.wsgi.application"
 
 
-STATIC_URL = "static/"
+STATIC_URL = "statics/"
+STATIC_ROOT = "statics/"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = "media/"
