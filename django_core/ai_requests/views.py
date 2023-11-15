@@ -41,6 +41,7 @@ class RequestHistoryAPIList(generics.ListCreateAPIView):
         try:
             image = request.data.get("image")
             user_description = request.data.get("user_description", "")
+            instruction = request.data.get("instruction", "")
             user = request.user
 
             if not image:
@@ -59,9 +60,8 @@ class RequestHistoryAPIList(generics.ListCreateAPIView):
 
             data = {
                 "image_url": HOST_URL + serialized_rh_object.get("image"),
-                "accuracy_threshold": "0.7",
-                "number_objects": 20,
                 "description": serialized_rh_object.get("user_description"),
+                "instruction": instruction,
             }
 
             response = self.get_ai_service_response(data=data)
