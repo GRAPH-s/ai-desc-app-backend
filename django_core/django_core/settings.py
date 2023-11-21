@@ -64,6 +64,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "django_core.urls"
 
+CSRF_TRUSTED_ORIGINS = ["https://ai.baza-games.ru"]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
